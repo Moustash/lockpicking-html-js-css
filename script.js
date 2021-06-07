@@ -225,6 +225,8 @@ function outOfPins() {
   // $('#modal').fadeIn();
   $('#wrap').css('display', 'none')
   $('#title').css('display', 'none')
+
+  // LA VOITURE EST VEROUILLEE, PLUS DE PINS
 }
 
 function unlock() {
@@ -233,6 +235,8 @@ function unlock() {
   // $('#modal').fadeIn();
   $('#wrap').css('display', 'none')
   $('#title').css('display', 'none')
+
+  // LA VOITURE EST DEVEROUILLEE
 }
 
 //UTIL
