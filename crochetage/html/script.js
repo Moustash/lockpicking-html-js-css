@@ -1,4 +1,7 @@
-var minPinRot = -90,
+var 
+    wrap = document.getElementById("wrap"),
+    title = document.getElementById("title"),
+    minPinRot = -90,
     maxPinRot = 90,
     minCylinderRot = -90,
     maxCylinderRot = 90,
@@ -20,9 +23,17 @@ var minPinRot = -90,
     gamePaused = false,
     pin, cyl, driver, cylRotationInterval, pinLastDamaged;
 
-
 $(function(){
-  
+  wrap.style.display = "none";
+  title.style.display = "none";
+
+  window.addEventListener('message', function(event) {
+    if (event.data.type == "enableui") {
+      wrap.style.display = event.data.enable ? "block" : "none";
+      title.style.display = event.data.enable ? "block" : "none";
+    }
+});
+
   //pop vars
   pin = $('#pin');
   cyl = $('#cylinder');
@@ -223,8 +234,9 @@ function outOfPins() {
   gameOver = true;
   // $('#lose').css('display','inline-block');
   // $('#modal').fadeIn();
-  $('#wrap').css('display', 'none')
-  $('#title').css('display', 'none')
+  
+  $('#wrap').hide()
+  $('#title').hide()
 
   // LA VOITURE EST VEROUILLEE, PLUS DE PINS
 }
@@ -233,8 +245,8 @@ function unlock() {
   gameOver = true;
   // $('#win').css('display','inline-block');
   // $('#modal').fadeIn();
-  $('#wrap').css('display', 'none')
-  $('#title').css('display', 'none')
+  $('#wrap').hide()
+  $('#title').hide()
 
   // LA VOITURE EST DEVEROUILLEE
 }
