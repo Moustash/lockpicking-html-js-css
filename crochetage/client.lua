@@ -41,7 +41,7 @@ RegisterNUICallback('escape', function(data, cb)
 
     cb('ok')
 end)
-
+ 
 Citizen.CreateThread(function()
     while true do
         if guiEnabled then
